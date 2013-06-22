@@ -1,0 +1,17 @@
+[user]
+	name = kenji imai
+	email = kenji.imai@gmail.com
+[core]
+	editor = vim
+	excludesfile = $HOME/.gitignore
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
