@@ -1,0 +1,107 @@
+## グローバルエイリアス
+#
+alias -g E='|nkf -e'
+alias -g G='|grep'
+alias -g M='|more'
+alias -g H='|head'
+alias -g S='|sort'
+alias -g T='|tail'
+alias -g L='|less'
+alias -g W='|wc'
+
+
+## エイリアス
+#
+# cd
+alias ..='cd ..;ls'
+alias cdht='cd /opt/local/apache2/htdocs'
+alias cdaplog='cd /opt/local/apache2/logs'
+
+#
+alias grep='grep --color'
+
+# ls
+alias ls='ls -aFG'
+alias ll='ls -alFG'
+
+# make
+alias gm='make'
+alias gmc='make clean'
+
+# apache
+alias apst='sudo /opt/local/apache2/bin/apachectl start'
+alias apsp='sudo /opt/local/apache2/bin/apachectl stop'
+alias aprst='sudo /opt/local/apache2/bin/apachectl restart'
+
+# mysql
+alias mysql_start='sudo /opt/local/share/mysql5/mysql/mysql.server start'
+alias mysql_stop='sudo /opt/local/share/mysql5/mysql/mysql.server stop'
+alias mysql_svr_start='sudo /opt/local/lib/mysql5/bin/mysqld_safe --user=root &'
+alias mysql_svr_stop='sudo /opt/local/lib/mysql5/bin/mysqladmin --user=root -p shutdown'
+
+# mongo
+alias mongod_start='mongod --dbpath=/Users/kimai/local/var/mongodb/data/db'
+
+# ssh for lolipop
+alias sshlp="ssh hippy.jp-ima-ken@ssh412.lolipop.jp -p 2222"
+alias cdhd="/Users/kimai/local/var/htdocs"
+
+
+cctags() {
+  ctags -R $PWD/*
+  find . -type d \! -path '*/.svn' -exec cp ./tags {}/ \;
+}
+
+brewup() {
+  echo "[brew update]"
+  brew update
+  echo "[brew upgrade]"
+  brew upgrade
+}
+
+
+########################################
+# Conda
+########################################
+
+conda-activate() {
+  source activate $1
+}
+alias conda-deactivate='source deactivate'
+
+jplab() {
+  conda-activate jupyter_py35
+  cd /Users/kimai/local/jupyter
+  jupyter lab
+}
+
+########################################
+# Spyder
+########################################
+#alias spyder='source activate spyder; sypder'
+
+########################################
+# iTerm2 Logrotation
+########################################
+
+iterm_logrotate() {
+  find ${LOCAL_HOME}/logs/termlogs/ -mtime +60 -name "*.log" -print -exec echo {} \;
+}
+
+alias cdkobito="~/Library/Containers/com.qiita.Kobito/Data/Library/Kobito/"
+kobito_sync() {
+  cd ~/Library/Containers/com.qiita.Kobito/Data/Library/Kobito/
+  rm ./Kobito.db ./Kobito.db-shm ./Kobito.db-wal
+  ln ~/Dropbox/Kobito/Kobito.db ./Kobito.db
+  ln ~/Dropbox/Kobito/Kobito.db-wal ./Kobito.db-wal
+  ln ~/Dropbox/Kobito/Kobito.db-shm ./Kobito.db-shm
+  cd ${OLDPWD}
+}
+kobito_save() {
+  cd ~/Library/Containers/com.qiita.Kobito/Data/Library/Kobito/
+  cp ./Kobito.db ~/Dropbox/Kobito/Kobito.db
+  cp ./Kobito.db-wal ~/Dropbox/Kobito/Kobito.db-wal
+  cp ./Kobito.db-shm ~/Dropbox/Kobito/Kobito.db-shm
+  cd ${OLDPWD}
+}
+

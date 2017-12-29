@@ -1,0 +1,11 @@
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=$LOCAL_HOME/bin:$MYSQL5_BIN:$PATH
+export PATH=$EC2_HOME/bin:$PATH
+
+# brew,python
+#export PATH=$HOME/anaconda/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:~/.pyenv/versions/anaconda3-4.2.0/bin/:$PATH
+
+## Node Path
+export PATH=$PATH:${HOME}/.nodebrew/current/bin
+
