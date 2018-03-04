@@ -1,0 +1,10 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#559955",
+    // "activityBar.background": "#5555bb"
+    // "activityBar.background": "#99ccdd"
+
+    "editorLineNumber.foreground": "#aaa"
+  },
+  // "editor.tokenColorCustomizations": { "comments": "#779977"}
+}

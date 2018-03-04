@@ -1,0 +1,20 @@
+{
+	"version": "0.1.0",
+	"command": "go",
+	"isShellCommand": true,
+	"showOutput": "silent",
+	"tasks": [
+		{
+			"taskName": "test",
+			"args": [ "-v", "./..."],
+			"isTestCommand": true
+		},
+		{
+			"taskName": "Run Go program",
+			"args": ["run", "${workspaceRoot}/src/main.go"],
+			"suppressTaskName": true,
+			"isBuildCommand": true,
+			"echoCommand": true
+		}
+	]
+}
