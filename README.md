@@ -1,6 +1,6 @@
-# ImakenFever dotfiles
+# dotfiles
 
 ## Installation
 
-    git clone git://github.com/imakenfever/dotfiles.git
+    git clone git://github.com/kenji-imi/dotfiles.git
 
