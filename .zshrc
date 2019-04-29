@@ -3,17 +3,7 @@
 export TERM=xterm-256color
 export TZ=Japan
 export LOCAL_HOME=$HOME/local
-export MYSQL5_BIN=/opt/local/lib/mysql5/bin
-export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
-
-### Amazon EC2 API Tools の場所を設定 ###
-export EC2_HOME=$LOCAL_HOME/EC2
-export EC2_URL=https://ec2.ap-northeast-1.amazonaws.com
-### 先にダウンロードしたキーファイル2つの場所の設定 ###
-export EC2_CERT=$EC2_HOME/cert-PYEXUGUX7D3QIOB7L27FABYJTVKSGVWO.pem
-export EC2_PRIVATE_KEY=$EC2_HOME/pk-PYEXUGUX7D3QIOB7L27FABYJTVKSGVWO.pem
-
+export GIT_HOME=$HOME/local/git/kenji-imi
 
 #export CLICOLOR=1
 #export LSCOLORS=exfxcxdxbxegedabagacad
@@ -37,7 +27,12 @@ export PYTHONIOENCODING=utf-8
 #export EVENT_NOKQUEUE=1
 
 
+## Golang設定
+export GO111MODULE=on
+
+
 # 主に zsh 特有のオプションの設定
+cd $HOME
 if [ -f .zsh_option ]; then
   source .zsh_option
 fi
@@ -51,7 +46,18 @@ if [ -f .zsh_alias ]; then
   source .zsh_alias
 fi
 
+if [ -f .zsh_secret ]; then
+  source .zsh_secret
+fi
+
 if [ -f .zprofile ]; then
   source .zprofile
 fi
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kimai/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kimai/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kimai/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kimai/google-cloud-sdk/completion.zsh.inc'; fi
+
+cd -

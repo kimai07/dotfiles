@@ -1,11 +1,22 @@
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=$LOCAL_HOME/bin:$MYSQL5_BIN:$PATH
-export PATH=$EC2_HOME/bin:$PATH
+export PATH=$LOCAL_HOME/bin:$PATH
 
-# brew,python
-#export PATH=$HOME/anaconda/bin:/usr/local/bin:$PATH
-export PATH=/usr/local/bin:~/.pyenv/versions/anaconda3-4.2.0/bin/:$PATH
+# brew
+export PATH=/usr/local/bin:$PATH
 
-## Node Path
+# elasticsearch
+export ELASTICROOT=/usr/local/Cellar/elasticsearch/6.6.0_1
+export ELASTICPATH=/usr/local/var/elasticsearch/plugins/
+export PATH=$ELASTICPATH:$PATH
+
+# Node Path
 export PATH=$PATH:${HOME}/.nodebrew/current/bin
 
+# Go Path
+if [ -x "`which go`" ]; then
+    export GOROOT=`go env GOROOT`
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
+export GOSKELTON_DEST_DIR=$GOPATH/src/github.com/kenji-imi
+export GOSKELTON_USER=kenji-imi
