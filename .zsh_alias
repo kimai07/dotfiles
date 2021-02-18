@@ -17,10 +17,18 @@ alias ...='cd ../..;ls'
 alias ....='cd ../../..;ls'
 alias .....='cd ../../../..;ls'
 
-alias cdht='cd /opt/local/apache2/htdocs'
-alias cdaplog='cd /opt/local/apache2/logs'
+# local
+alias cdlocal="cd $LOCAL_HOME"
 
-#
+alias cdjava="cd $LOCAL_HOME/java"
+alias cdp="cd $LOCAL_HOME/python"
+alias cdjpt="cd $LOCAL_HOME/jupyter"
+alias cddata="cd $LOCAL_HOME/data"
+
+# golang
+alias cdgo="~/go/src/github.com/kimai07"
+
+# grep
 alias grep='grep --color'
 
 # ls
@@ -32,15 +40,30 @@ alias gm='make'
 alias gmc='make clean'
 
 # github
-alias cdg="~/local/git/kimai07"
-alias cddoc="~/local/git/kimai07/documents"
-alias cdvue="~/local/git/kimai07/web/vue-app"
-alias cdn="~/local/git/kimai07/web/node"
-alias cdgo="~/go/src/github.com/kimai07"
+alias cdg="cd $GIT_HOME"
+alias cddoc="cd $GIT_HOME/documents"
+alias cdweb="cd $GIT_HOME/web"
 
-# local
-alias cdp="~/local/python"
-alias cdjpt="~/local/jupyter"
+# unixtime
+alias tounix="date +%s"
+alias fromunix="date -r $1"
+
+tounixfromdate() {
+  month=$1
+  day=$2
+  echo "date -v19y -v${month}m -v${day}d -v0H -v0M -v0S +%s"
+  date -v19y -v${month}m -v${day}d -v0H -v0M -v0S +%s
+}
+
+# url
+function urlencode() {
+  echo "$1" | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n'
+  echo
+}
+
+########################################
+# homebrew
+########################################
 
 brewup() {
   echo "[brew update]"
@@ -49,15 +72,36 @@ brewup() {
   brew upgrade
 }
 
+########################################
+# git
+########################################
+
+pull-master() {
+  echo "git pull origin master"
+  git pull origin master
+}
+
+docup() {
+  TMP_PWD=$PWD
+
+  cd $GIT_HOME/documents/doc/md
+  git pull origin master
+
+  cd $GIT_HOME/documents/castle_doc/md
+  git pull origin master
+
+  cd $TMP_PWD
+}
+
+########################################
+# python
+########################################
+
 pipup() {
   echo "[pip update]"
   echo "pip install -U pip"
   pip install -U pip
 }
-
-########################################
-# Python
-########################################
 
 alias jn='jupyter notebook'
 
@@ -72,44 +116,17 @@ jp3-activate() {
 }
 
 ########################################
-# iTerm2 Logrotation
+# iTerm2 logrotation
 ########################################
 
 iterm_logrotate() {
   find ${LOCAL_HOME}/logs/termlogs/ -mtime +60 -name "*.log" -print -exec echo {} \;
 }
 
-#alias cdkobito="~/Library/Containers/com.qiita.Kobito/Data/Library/Kobito/"
-#kobito_sync() {
-#  cd ~/Library/Containers/com.qiita.Kobito/Data/Library/Kobito/
-#  rm ./Kobito.db ./Kobito.db-shm ./Kobito.db-wal
-#  ln ~/Dropbox/Kobito/Kobito.db ./Kobito.db
-#  ln ~/Dropbox/Kobito/Kobito.db-wal ./Kobito.db-wal
-#  ln ~/Dropbox/Kobito/Kobito.db-shm ./Kobito.db-shm
-#  cd ${OLDPWD}
-#}
-#kobito_save() {
-#  cd ~/Library/Containers/com.qiita.Kobito/Data/Library/Kobito/
-#  cp ./Kobito.db ~/Dropbox/Kobito/Kobito.db
-#  cp ./Kobito.db-wal ~/Dropbox/Kobito/Kobito.db-wal
-#  cp ./Kobito.db-shm ~/Dropbox/Kobito/Kobito.db-shm
-#  cd ${OLDPWD}
-#}
-
-alias hoge='(){echo hello world $1 !!}'
+########################################
+# vscode
+########################################
 
 code() {
   VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
-}
-
-docup() {
-  TMP_PWD=$PWD
-
-  cd $GIT_HOME/documents/doc/md
-  git pull origin master
-
-  cd $GIT_HOME/documents/castle_doc/md
-  git pull origin master
-
-  cd $TMP_PWD
 }
