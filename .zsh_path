@@ -18,5 +18,5 @@ if [ -x "`which go`" ]; then
     export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
-export GOSKELTON_DEST_DIR=$GOPATH/src/github.com/kenji-imi
-export GOSKELTON_USER=kenji-imi
+export GOSKELTON_DEST_DIR=$GOPATH/src/github.com/kimai07
+export GOSKELTON_USER=kimai07

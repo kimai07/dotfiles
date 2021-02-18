@@ -3,12 +3,11 @@
 export TERM=xterm-256color
 export TZ=Japan
 export LOCAL_HOME=$HOME/local
-export GIT_HOME=$HOME/local/git/kenji-imi
+export GIT_HOME=$HOME/local/git/kimai07
 
 #export CLICOLOR=1
 #export LSCOLORS=exfxcxdxbxegedabagacad
 export LSCOLORS=gxfxcxdxbxegedabagacad
-
 
 ## Environment variable configuration
 #
@@ -16,9 +15,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-
 ## 補完機能
-export BREW_PREFIX=`/usr/local/bin/brew --prefix`
+export BREW_PREFIX=$(/usr/local/bin/brew --prefix)
 fpath=(${BREW_PREFIX}/share/zsh/site-functions $fpath)
 ## Path
 
@@ -26,10 +24,8 @@ export PYTHONIOENCODING=utf-8
 
 #export EVENT_NOKQUEUE=1
 
-
 ## Golang設定
 export GO111MODULE=on
-
 
 # 主に zsh 特有のオプションの設定
 cd $HOME

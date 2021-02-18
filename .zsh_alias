@@ -9,7 +9,6 @@ alias -g T='|tail'
 alias -g L='|less'
 alias -g W='|wc'
 
-
 ## エイリアス
 #
 # cd
@@ -33,11 +32,11 @@ alias gm='make'
 alias gmc='make clean'
 
 # github
-alias cdg="~/local/git/kenji-imi"
-alias cddoc="~/local/git/kenji-imi/documents"
-alias cdvue="~/local/git/kenji-imi/web/vue-app"
-alias cdn="~/local/git/kenji-imi/web/node"
-alias cdgo="~/go/src/github.com/kenji-imi"
+alias cdg="~/local/git/kimai07"
+alias cddoc="~/local/git/kimai07/documents"
+alias cdvue="~/local/git/kimai07/web/vue-app"
+alias cdn="~/local/git/kimai07/web/node"
+alias cdgo="~/go/src/github.com/kimai07"
 
 # local
 alias cdp="~/local/python"
@@ -56,12 +55,11 @@ pipup() {
   pip install -U pip
 }
 
-
 ########################################
 # Python
 ########################################
 
-alias jn='jupyter notebook' 
+alias jn='jupyter notebook'
 
 py3-activate() {
   cd ${LOCAL_HOME}/python
@@ -100,11 +98,11 @@ iterm_logrotate() {
 
 alias hoge='(){echo hello world $1 !!}'
 
-code() { 
-  VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* 
+code() {
+  VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
 }
 
-docup() { 
+docup() {
   TMP_PWD=$PWD
 
   cd $GIT_HOME/documents/doc/md
