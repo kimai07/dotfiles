@@ -26,7 +26,7 @@ alias cdjpt="cd $LOCAL_HOME/jupyter"
 alias cddata="cd $LOCAL_HOME/data"
 
 # golang
-alias cdgo="$HOME/go/src/github.com/kimai07"
+alias cdgo="cd $HOME/go/src/github.com/kimai07"
 
 # grep
 alias grep='grep --color'
