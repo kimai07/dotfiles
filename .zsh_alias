@@ -115,6 +115,8 @@ jp3-activate() {
   source ./py3-jupyter/bin/activate
 }
 
+alias ve-activate='source .venv/bin/activate'
+
 ########################################
 # iTerm2 logrotation
 ########################################
